@@ -5,5 +5,5 @@ general:
 machine:
     php:
         version: 7.0.4
-    mysql:
-        version: 5.7.15
+    services:
+        - mysql
