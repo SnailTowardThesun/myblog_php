@@ -4,7 +4,7 @@ general:
             - master
 machine:
     php:
-        version: 7.1
+        version: 7.0.4
 
 dependencies:
     pre:
