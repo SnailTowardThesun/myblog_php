@@ -5,9 +5,5 @@ general:
 machine:
     php:
         version: 7.0.4
-
-dependencies:
-    pre:
-        - pecl install mysql
-        - pecl install nginx
-
+    mysql:
+        version: 5.7.15
