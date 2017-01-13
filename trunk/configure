@@ -1,3 +1,17 @@
 #!/bin/sh
 
 echo "this is configure file for myblog_php"
+
+# 3rdparty
+
+cd 3rdparty
+
+unzip bootstrap-3.3.7-dist.zip
+
+cp -r ./bootstrap-3.3.7-dist/css ../css
+cp -r ./bootstrap-3.3.7-dist/fonts ../fonts
+cp -r ./bootstrap-3.3.7-dist/js ../js
+
+rm -rf bootstrap-3.3.7-dist
+
+cd ..
