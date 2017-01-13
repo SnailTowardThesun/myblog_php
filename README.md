@@ -12,18 +12,17 @@ personal blog using php
 
 ### ubuntu
 1. setup php`
-```
-sudo apt-get update
-sudo apt-get install php7.0 php7.0-fpm php7.0-mysql -y
-```
+  ```
+  sudo apt-get update
+  sudo apt-get install php7.0 php7.0-fpm php7.0-mysql -y
+  ```
 
-2. setup nginx
+1. setup nginx
+  ```
+  sudo apt-get install nginx`
+  ```
 
-```
-sudo apt-get install nginx`
-```
-
-3. initialize the environment
-```
-cd trunk && sh configure 
-```
+1. initialize the environment
+  ```
+  cd trunk && sh configure 
+  ```
