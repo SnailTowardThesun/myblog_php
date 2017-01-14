@@ -12,7 +12,6 @@
 <?php
 echo "this is blog index";
 
-
 include "./template/footer.php";
 ?>
 </body>
