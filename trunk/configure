@@ -18,6 +18,3 @@ cd ..
 
 # run composer
 php composer.phar install
-
-# run npm
-npm install
