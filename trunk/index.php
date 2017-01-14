@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php
+include "./template/basic_header.php"
 echo "this is blog index";
 
 include "./template/footer.php";

@@ -15,3 +15,9 @@ cp -r ./bootstrap-3.3.7-dist/js ../js
 rm -rf bootstrap-3.3.7-dist
 
 cd ..
+
+# run composer
+php composer.phar install
+
+# run npm
+npm install
