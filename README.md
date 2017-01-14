@@ -6,12 +6,16 @@ personal blog using php
 ## Third party
 
 * [bootstrap 3.3.7](https://github.com/twbs/bootstrap)
-
+* [npm](https://www.npmjs.com)
+* [anjularjs 2](https://angularjs.org)
+* [composer](https://getcomposer.org)
+* [twig](http://twig.sensiolabs.org)
+* [parsedown](http://parsedown.org)
 
 ## setup
 
 ### ubuntu
-1. setup php`
+1. setup php
   ```
   sudo apt-get update
   sudo apt-get install php7.0 php7.0-fpm php7.0-mysql -y
@@ -19,10 +23,10 @@ personal blog using php
 
 1. setup nginx
   ```
-  sudo apt-get install nginx`
+  sudo apt-get install nginx
   ```
 
 1. initialize the environment
   ```
-  cd trunk && sh configure 
+  cd trunk && sh configure
   ```
