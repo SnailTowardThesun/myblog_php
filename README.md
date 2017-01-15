@@ -6,8 +6,7 @@ personal blog using php
 ## Third party
 
 * [bootstrap 3.3.7](https://github.com/twbs/bootstrap)
-* [npm](https://www.npmjs.com)
-* [anjularjs 2](https://angularjs.org)
+* [anjularjs 1.6](https://angularjs.org)
 * [composer](https://getcomposer.org)
 * [twig](http://twig.sensiolabs.org)
 * [parsedown](http://parsedown.org)
