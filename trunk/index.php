@@ -7,11 +7,21 @@
     <meta name="author" content="hanvskun@hotmail.com">
     <title>home of blog</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/navgation.css" rel="stylesheet">
 </head>
 <body>
-<?php
-include "./template/basic_header.php";
-echo "<h1>This is my personal Blog</h1>";
-include "./template/footer.php";
-?>
+<?php  include "template/navgation.php";?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">index of article</div>
+        <div class="col-md-4">content list</div>
+    </div>
+</div>
+
+<?php include "template/footer.php";?>
+
+<script src="../js/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 </body>
+</html>
