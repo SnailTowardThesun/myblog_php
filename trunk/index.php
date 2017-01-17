@@ -11,7 +11,7 @@
 <body>
 <?php
 include "./template/basic_header.php";
-
+echo "<h1>This is my personal Blog</h1>";
 include "./template/footer.php";
 ?>
 </body>
