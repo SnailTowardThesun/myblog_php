@@ -5,3 +5,4 @@ trunk/js/npm.js
 trunk/fonts/glyphicons-halflings-regular*
 .DS_store
 trunk/vendor
+trunk/composer.lock

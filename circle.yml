@@ -8,7 +8,11 @@ machine:
     services:
         - mysql
 
+dependencies:
+    override:
+        - (cd trunk && sh configure)
+
 test:
     override:
         - (echo "ready to run test scripts")
-        - (cd trunk && sh configure)
+        - (cd trunk && ./vendor/bin/phpunit)

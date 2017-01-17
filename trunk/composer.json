@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "~2.0",
-        "erusev/parsedown": "^1.6"
+        "erusev/parsedown": "^1.6",
+        "phpunit/phpunit": "5.5.*"
     }
 }
