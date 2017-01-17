@@ -2,7 +2,6 @@ general:
     branches:
         only:
             - master
-            - /hotfix\/.*/
 machine:
     php:
         version: 7.0.4
