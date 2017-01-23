@@ -19,7 +19,7 @@ class articleModule extends TestCase
             "test"
         );
 
-        $test_info = new article_info_module();
+        $test_info = new article_template_module();
 
         $test_info->initialize($title, $author, $author_url, $publish_time, $content, $picture_url, $url, $key_words);
 

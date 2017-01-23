@@ -10,10 +10,10 @@ function get_article()
 
     for ($i = 0; $i < 10; $i++)
     {
-        $article = new article_info_module();
+        $article = new article_template_module();
 
         $article->initialize("title $i", "author $i", "author_url $i", "2017-01-10 19:00:0$i",
-            "content $i", "picture_url $i", "url $i", array("key $i"));
+            "content $i", "images/sample.jpg", "url $i", array("key $i"));
 
         array_push($article_list, $article->dump_in_array());
     }

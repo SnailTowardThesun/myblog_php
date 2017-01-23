@@ -1,6 +1,6 @@
 <?php
 
-class article_info_module
+class article_template_module
 {
 
     // title of article
