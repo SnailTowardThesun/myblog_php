@@ -9,7 +9,7 @@
         <p>
             <span class="glyphicon glyphicon-time"> Posted on {{ article.publish_time }}</span>
         </p>
-        <p> Key words:
+        <p> Key words:&nbsp
             {% for key in article.key_words %}
                 <span class="label label-info">{{ key }}</span>
             {% endfor %}

@@ -18,27 +18,14 @@
             <h1 class="page-header">Blog Index</h1>
             <?php
             require_once "./vendor/autoload.php";
+            include "controller/article_controller.php";
 
             $loader = new Twig_Loader_Filesystem('./template');
             $twig = new Twig_Environment($loader, array(
                 array('debug' => true)
             ));
-            echo $twig->render('index_content.php', array(
-                    "articles" => array(
-                            "test" => array(
-                                    "title" => "test article",
-                                    "author" => "test author",
-                                    "author_url" => "./view/aboutme.php",
-                                    "publish_time" => "2017-01-18 19:00:00",
-                                    "content" => "content about test blog",
-                                    "picture_url" => "test.jpg",
-                                    "url" => "index.php",
-                                    "key_words" => array(
-                                            "test",
-                                            "php"
-                                    )
-                            )
-                    )
+            echo $twig->render("index_content.php", array(
+                    "articles" => get_article()
             ));
             ?>
         </div>
