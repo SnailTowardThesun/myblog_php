@@ -25,7 +25,7 @@
                 array('debug' => true)
             ));
             echo $twig->render("index_content.php", array(
-                    "articles" => get_article()
+                    "articles" => get_index_article()
             ));
             ?>
         </div>

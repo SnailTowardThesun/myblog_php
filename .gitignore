@@ -6,3 +6,4 @@ trunk/fonts/glyphicons-halflings-regular*
 .DS_store
 trunk/vendor
 trunk/composer.lock
+trunk/blog.conf
