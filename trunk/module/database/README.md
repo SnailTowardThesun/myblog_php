@@ -2,6 +2,7 @@
 
 ## module of article
 module of article
+
 |name|type|condition|instruction|
 |---|---|---|---|
 |uuid|char(32)|not null|the foreign key|
