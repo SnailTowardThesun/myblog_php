@@ -18,3 +18,6 @@ cd ..
 
 # run composer
 php composer.phar install
+
+# create a default conf
+echo "{\"database_host\":\"localhost\",\"database_name\":\"blog\",\"database_username\":\"username\",\"database_password\":\"password\"}"
