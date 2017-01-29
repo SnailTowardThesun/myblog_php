@@ -9,7 +9,7 @@ create table article (uuid char(32), title varchar(100), author varchar(100), au
 
 |name|type|condition|instruction|
 |---|---|---|---|
-|uuid|char(32)|not null|the foreign key|
+|uuid|char(32)|not null|the primary key|
 |title|varchar(100)|not null|title of artcile|
 |author|varchar(100)|not null|default is Han|
 |author_url|varchar(255)|not null|default is contact.php|
