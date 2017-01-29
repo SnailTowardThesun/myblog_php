@@ -10,7 +10,7 @@
     <link href="./css/navgation.css" rel="stylesheet">
 </head>
 <body>
-<?php  include "template/navgation.php";?>
+<?php  include dirname(__FILE__)."/template/navgation.php";?>
 
 <div class="container">
     <div class="row">
@@ -24,8 +24,9 @@
             $twig = new Twig_Environment($loader, array(
                 array('debug' => true)
             ));
+            $article_co = new article_controller();
             echo $twig->render("index_content.php", array(
-                    "articles" => get_index_article()
+                    "articles" => $article_co->get_index_article()
             ));
             ?>
         </div>
@@ -71,9 +72,9 @@
     </div>
 </div>
 
-<?php include "template/footer.php";?>
+<?php include dirname(__FILE__)."/template/footer.php";?>
 
-<script src="../js/jquery.js"></script>
+<script src="./js/jquery.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

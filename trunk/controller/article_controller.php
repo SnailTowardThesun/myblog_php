@@ -1,27 +1,52 @@
 <?php
 
-include "module/template/article_module.php";
-include "../controller/db_controller.php";
+require_once dirname(__FILE__)."/../module/template/article_module.php";
+require_once dirname(__FILE__)."/../controller/db_controller.php";
 
 class conf
 {
     private $file_path;
+    private $conf_data;
 
     public function initialzie($path)
     {
         $this->file_path = $path;
+        $content = file_get_contents($this->file_path);
+
+        if ($content == false)
+        {
+            log("read message from conf file failed.");
+            return false;
+        }
+
+        $this->conf_data = json_decode($content);
+        if ($this->conf_data == null)
+        {
+            log("decode conf data from json failed.");
+            return false;
+        }
+
+        return true;
     }
 
     public function get_db_username()
     {
-        // TODO:FIXME: implement this function
-        return "username";
+        if ($this->conf_data == null)
+        {
+            return null;
+        }
+
+        return $this->conf_data->database_username;
     }
 
     public function get_db_password()
     {
-        // TDDO:FIXME: implement this function
-        return "password";
+        if ($this->conf_data == null)
+        {
+            return null;
+        }
+
+        return $this->conf_data->database_password;
     }
 }
 

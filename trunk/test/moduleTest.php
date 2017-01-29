@@ -1,7 +1,8 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-include "module/template/article_module.php";
+require_once dirname(__FILE__)."/../module/template/article_module.php";
+
 class articleModule extends TestCase
 {
     public function testDumpInArray()

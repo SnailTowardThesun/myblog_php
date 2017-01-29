@@ -12,6 +12,19 @@ personal blog using php
 * [twig](http://twig.sensiolabs.org)
 * [parsedown](http://parsedown.org)
 
+
+## configure file 
+
+need a configure file named blog.conf to record some information such as user name and password for database
+
+
+```
+{
+    "database_username" : "username",
+    "database_password" : "password"
+}
+```
+
 ## setup
 
 ### ubuntu

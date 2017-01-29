@@ -47,13 +47,15 @@ class comment_db_module
     private $comment;
     // the ip of author
     private $ip;
-
-    public function initialize($uuid, $author, $email, $comment, $ip)
+    // the publish time
+    private $publish_time;
+    public function initialize($uuid, $author, $email, $comment, $ip, $publish_time)
     {
         $this->uuid = $uuid;
         $this->author = $author;
         $this->email = $email;
         $this->comment = $comment;
         $this->ip = $ip;
+        $this->publish_time = $publish_time;
     }
 }
