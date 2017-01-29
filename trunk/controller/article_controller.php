@@ -29,6 +29,26 @@ class conf
         return true;
     }
 
+    public function get_db_host()
+    {
+        if ($this->conf_data == null)
+        {
+            return null;
+        }
+
+        return $this->conf_data->database_host;
+    }
+
+    public function get_db_name()
+    {
+        if ($this->conf_data == null)
+        {
+            return null;
+        }
+
+        return $this->conf_data->database_name;
+    }
+
     public function get_db_username()
     {
         if ($this->conf_data == null)
@@ -53,22 +73,47 @@ class conf
 class basic_controlller
 {
     // the conf file
-    private $conf;
+    public $conf;
     // the database operator
-    private $db;
+    public $db;
 
     public function __construct()
     {
         $this->conf = new conf();
-        $this->conf->initialzie("blog.conf");
+        $this->conf->initialzie(dirname(__FILE__)."/../blog.conf");
 
         $this->db = new db_operator();
-        $this->db->initialize($this->conf->get_db_username(), $this->conf->get_db_password());
+        $this->db->initialize($this->conf->get_db_username(), $this->conf->get_db_password(), $this->conf->get_db_host(), $this->conf->get_db_name());
     }
 }
 
 class article_controller extends basic_controlller
 {
+    public function get_all_articles()
+    {
+        $sql = "select * from article";
+        $articles = $this->db->do_sql($sql);
+        if ($articles == null)
+        {
+            log("fail to get all articles");
+            return null;
+        }
+
+        $article_list = array();
+
+        while (($row = mysqli_fetch_array($articles)) != null)
+        {
+            $article = new article_template_module();
+            $article->initialize($row['title'], $row['author'], $row['author_url'], $row['publish_time'], $row['content'],
+                'images/'.$row['picture_url'], $row['url'], explode(',', $row['key_words']));
+
+            array_push($article_list, $article->dump_in_array());
+        }
+
+        $this->db->close();
+        return $article_list;
+
+    }
     public function get_index_article()
     {
         // TODO:FIXME: checkout the articles in database.

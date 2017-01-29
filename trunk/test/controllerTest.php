@@ -13,5 +13,7 @@ class confTest extends TestCase
 
         $this->assertTrue($conf->get_db_password() != null);
         $this->assertTrue($conf->get_db_username() != null);
+        $this->assertTrue($conf->get_db_host() != null);
+        $this->assertTrue($conf->get_db_name() != null);
     }
 }

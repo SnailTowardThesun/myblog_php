@@ -17,16 +17,16 @@
         <div class="col-md-8">
             <h1 class="page-header">Blog Index</h1>
             <?php
-            require_once "./vendor/autoload.php";
-            include "controller/article_controller.php";
+            require_once dirname(__FILE__)."/vendor/autoload.php";
+            include dirname(__FILE__)."/controller/article_controller.php";
 
-            $loader = new Twig_Loader_Filesystem('./template');
+            $loader = new Twig_Loader_Filesystem(dirname(__FILE__).'/template');
             $twig = new Twig_Environment($loader, array(
                 array('debug' => true)
             ));
             $article_co = new article_controller();
             echo $twig->render("index_content.php", array(
-                    "articles" => $article_co->get_index_article()
+                    "articles" => $article_co->get_all_articles()
             ));
             ?>
         </div>
