@@ -17,7 +17,7 @@ include dirname(__FILE__)."/../template/navgation.php";
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="admin.php">add article</a></li>
         <li role="presentation" class="active"><a href="admin_update.php">update article</a></li>
-        <li role="presentation"><a href="admin_delete.php">delete article</a></li>
+        <li role="presentation" class="disabled"><a href="#">delete article</a></li>
     </ul>
 
     <h1>update an article</h1>

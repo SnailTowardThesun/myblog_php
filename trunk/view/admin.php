@@ -17,7 +17,7 @@ include dirname(__FILE__)."/../template/navgation.php";
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="admin.php">add article</a></li>
         <li role="presentation"><a href="admin_update.php">update article</a></li>
-        <li role="presentation"><a href="admin_delete.php">delete article</a></li>
+        <li role="presentation" class="disabled"><a href="#">delete article</a></li>
     </ul>
     <h1>Add an article</h1>
     <form class="form-horizontal" role="form">
@@ -50,7 +50,7 @@ include dirname(__FILE__)."/../template/navgation.php";
             <input type="text" class="form-control" placeholder="@exampel: key,words" aria-describedby="article-keywords">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-default">submit</button>
+            <button type="submit" class="btn btn-default" onclick="add_blog()">submit</button>
         </div>
     </form>
 
@@ -60,5 +60,6 @@ include dirname(__FILE__)."/../template/footer.php";
 ?>
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/blog.js"></script>
 </body>
 </html>
