@@ -16,7 +16,6 @@ personal blog using php
 
 need a configure file named blog.conf to record some information such as user name and password for database
 
-
 ```
 {
     "database_username" : "username",
