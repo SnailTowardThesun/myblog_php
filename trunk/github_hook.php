@@ -12,8 +12,4 @@ if (!empty($raw_data))
 
     fclose($file);
 }
-else
-{
-    echo "write nothing";
-}
 

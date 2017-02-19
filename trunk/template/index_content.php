@@ -1,7 +1,7 @@
 <div>
     {% for article in articles %}
         <h2>
-            <a href="{{ article.url }}">{{ article.title }}</a>
+            <a href="view/article.php?name={{ article.url }}">{{ article.title }}</a>
         </h2>
         <p class="lead">
             <a href="{{ article.author_url }} ">{{ article.author }}</a>
@@ -20,7 +20,7 @@
         <p>
             {{ article.content }}
         </p>
-        <a class="btn btn-primary" href="{{ article.url }}">
+        <a class="btn btn-primary" href="view/article.php?name={{ article.url }}">
             Read More
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
