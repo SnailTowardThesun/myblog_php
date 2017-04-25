@@ -24,9 +24,10 @@
             $twig = new Twig_Environment($loader, array(
                 array('debug' => true)
             ));
+
             $article_co = new article_controller();
             echo $twig->render("index_content.php", array(
-                    "articles" => $article_co->get_all_articles()
+                    "articles" => $article_co->get_page_article(1)
             ));
             ?>
         </div>

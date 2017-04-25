@@ -2,6 +2,7 @@
 
 require_once dirname(__FILE__)."/../module/template/article_module.php";
 require_once dirname(__FILE__)."/../controller/db_controller.php";
+require_once dirname(__FILE__)."/../module/common.php";
 
 class conf
 {
@@ -70,7 +71,7 @@ class conf
     }
 }
 
-class basic_controlller
+class basic_controller
 {
     // the conf file
     public $conf;
@@ -85,9 +86,14 @@ class basic_controlller
         $this->db = new db_operator();
         $this->db->initialize($this->conf->get_db_username(), $this->conf->get_db_password(), $this->conf->get_db_host(), $this->conf->get_db_name());
     }
+
+    public function __destruct()
+    {
+        $this->db->close();
+    }
 }
 
-class article_controller extends basic_controlller
+class article_controller extends basic_controller
 {
     public function get_all_articles()
     {
@@ -110,24 +116,46 @@ class article_controller extends basic_controlller
             array_push($article_list, $article->dump_in_array());
         }
 
-        $this->db->close();
         return $article_list;
 
     }
-    public function get_index_article()
+    
+    public function get_page_article($page)
     {
-        // TODO:FIXME: checkout the articles in database.
-        $article_list = array();
+        $offset = ($page - 1) * 5;
+        $recnum = ARTICLE_NUMBER_IN_EACH_PAGES;
 
-        for ($i = 0; $i < 10; $i++)
+        $sql = "select * from article order by publish_time desc limit $offset, $recnum";
+
+        $ret = $this->db->do_sql($sql);
+
+        $article_list = array();
+        while (($row = mysqli_fetch_array($ret)) != null)
         {
             $article = new article_template_module();
-
-            $article->initialize("title $i", "author $i", "author_url $i", "2017-01-10 19:00:0$i",
-                "content $i", "images/sample.jpg", "url $i", array("key $i"));
+            $article->initialize($row['title'], $row['author'], $row['author_url'], $row['publish_time'], $row['content'],
+                'images/'.$row['picture_url'], $row['url'], explode(',', $row['key_words']));
 
             array_push($article_list, $article->dump_in_array());
         }
+
         return $article_list;
+    }
+
+    public function get_article_pages()
+    {
+        $pages = 0;
+
+        $sql = "select count(*) from article";
+        $ret = $this->db->do_sql($sql);
+
+        $row = mysqli_fetch_row($ret);
+        if ($row != null)
+        {
+            $count = $row[0];
+            $pages = ceil($count / ARTICLE_NUMBER_IN_EACH_PAGES);
+        }
+        return $pages;
+
     }
 }
