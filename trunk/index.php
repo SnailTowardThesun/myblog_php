@@ -26,10 +26,39 @@
             ));
 
             $article_co = new article_controller();
+
+            $page = 1;
+            $total_page = $article_co->get_article_pages();
+            if(empty($_GET['page'])||$_GET['page']<0){
+                $page = 1;
+            }else {
+                $page = $_GET['page'];
+            }
+
             echo $twig->render("index_content.php", array(
-                    "articles" => $article_co->get_page_article(1)
+                    "articles" => $article_co->get_article_due_page($page)
             ));
+
             ?>
+            <nav aria-label="...">
+                <ul class="pager">
+                    <?php
+                    if ($page > 1) {
+                        $pre = $page - 1;
+                        echo "<li><a href=\"index.php?page=$pre\">Previous</a></li>";
+                    } else {
+                        echo "<li><a href=\"index.php\">Previous</a></li>";
+                    }
+
+                    if ($page < $total_page) {
+                        $next = $page + 1;
+                        echo "<li><a href=\"index.php?page=$next\">Next</a></li>";
+                    } else {
+                        echo "<li><a href=\"index.php?page=$page\">Next</a></li>";
+                    }
+                    ?>
+                </ul>
+            </nav>
         </div>
         <div class="col-md-4">
             <div class="well">

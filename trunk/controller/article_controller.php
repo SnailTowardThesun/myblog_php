@@ -120,9 +120,9 @@ class article_controller extends basic_controller
 
     }
     
-    public function get_page_article($page)
+    public function get_article_due_page($page)
     {
-        $offset = ($page - 1) * 5;
+        $offset = ($page - 1) * ARTICLE_NUMBER_IN_EACH_PAGES;
         $recnum = ARTICLE_NUMBER_IN_EACH_PAGES;
 
         $sql = "select * from article order by publish_time desc limit $offset, $recnum";
